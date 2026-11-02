@@ -1,0 +1,6 @@
+import { ArrowUpRight, ShieldCheck } from "lucide-react";
+import { facilities } from "../../data/content";
+
+export default function FacilitiesSection({ t, isHindi }) {
+  return <section className="campus-section container" id="facilities"><div className="section-heading"><div><div className="section-kicker">{t("A CAMPUS BUILT FOR CARE", "देखभाल के लिए बना परिसर")}</div><h2>{t("Modern facilities.", "आधुनिक सुविधाएं।")}<br /><span>{t("Public purpose.", "जनसेवा का उद्देश्य।")}</span></h2></div><a className="text-link" href="https://dumkamedicalcollege.org/" target="_blank" rel="noreferrer">{t("Visit official website", "आधिकारिक वेबसाइट देखें")} <ArrowUpRight size={17} /></a></div><div className="campus-grid">{facilities.map((facility) => <article className="facility-card" key={facility.title}><img src={facility.image} alt={facility.title} /><div><b>{isHindi ? facility.hi : facility.title}</b><ArrowUpRight size={17} /></div></article>)}<div className="campus-note"><ShieldCheck size={24} /><b>{t("Government medical education and tertiary healthcare in Dumka.", "दुमका में सरकारी चिकित्सा शिक्षा और उच्च स्तरीय स्वास्थ्य सेवा।")}</b><p>{t("One connected campus for patients, learners, families, and the wider Santhal Pargana region.", "मरीजों, विद्यार्थियों, परिवारों और पूरे संथाल परगना क्षेत्र के लिए एक जुड़ा हुआ परिसर।")}</p></div></div></section>;
+}
