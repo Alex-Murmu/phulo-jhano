@@ -4,5 +4,69 @@ import Button from "../ui/Button";
 import { navigate } from "../../hooks/useRouter";
 
 export default function DoctorsSection({ t }) {
-  return <section className="doctors-section container" id="doctors"><div className="section-heading"><div><div className="section-kicker">{t("MEET YOUR CARE TEAM", "अपनी चिकित्सा टीम से मिलें")}</div><h2>{t("Good people.", "अच्छे लोग।")}<br /><span>{t("Great doctors.", "बेहतरीन डॉक्टर।")}</span></h2></div><Button variant="outline" onClick={() => navigate("/doctors")}>{t("Meet all doctors", "सभी डॉक्टर देखें")} <ArrowUpRight size={17} /></Button></div>  <div className="doctor-grid">{doctors.slice(0, 3).map((doctor) => { const slug = doctor.name.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, ""); return <article className="doctor-card doctor-card-clickable" key={doctor.name} onClick={() => navigate(`/doctors/${slug}`)} onKeyDown={(event) => event.key === "Enter" && navigate(`/doctors/${slug}`)} role="button" tabIndex="0"><div className="doctor-image"><img src={doctor.image} alt={doctor.name} /><span className="doctor-available"><span /> {t("Accepting patients", "मरीज देख रहे हैं")}</span></div><div className="doctor-info"><div><h3>{doctor.name}</h3><p>{doctor.specialty}</p></div><button className="round-arrow" onClick={(event) => { event.stopPropagation(); navigate(`/doctors/${slug}`); }} aria-label={t(`View profile of ${doctor.name}`, `${doctor.name} की प्रोफाइल देखें`)}><ArrowUpRight size={18} /></button></div></article>; })}</div></section>;
+  return (
+    <section className="doctors-section container" id="doctors">
+      <div className="section-heading">
+        <div>
+          <div className="section-kicker">
+            {t("MEET YOUR CARE TEAM", "अपनी चिकित्सा टीम से मिलें")}
+          </div>
+          <h2>
+            {t("Good people.", "अच्छे लोग।")}
+            <br />
+            <span>{t("Great doctors.", "बेहतरीन डॉक्टर।")}</span>
+          </h2>
+        </div>
+        <Button variant="outline" onClick={() => navigate("/doctors")}>
+          {t("Meet all doctors", "सभी डॉक्टर देखें")} <ArrowUpRight size={17} />
+        </Button>
+      </div>{" "}
+      <div className="doctor-grid">
+        {doctors.slice(0, 3).map((doctor) => {
+          const slug = doctor.name
+            .toLowerCase()
+            .replace(/[^a-z0-9]+/g, "-")
+            .replace(/^-|-$/g, "");
+          return (
+            <article
+              className="doctor-card doctor-card-clickable"
+              key={doctor.name}
+              onClick={() => navigate(`/doctors/${slug}`)}
+              onKeyDown={(event) =>
+                event.key === "Enter" && navigate(`/doctors/${slug}`)
+              }
+              role="button"
+              tabIndex="0"
+            >
+              <div className="doctor-image">
+                <img src={doctor.image} alt={doctor.name} />
+                <span className="doctor-available">
+                  <span /> {t("Accepting patients", "मरीज देख रहे हैं")}
+                </span>
+              </div>
+              <div className="doctor-info">
+                <div>
+                  <h3>{doctor.name}</h3>
+                  <p>{doctor.specialty}</p>
+                </div>
+                <button
+                  className="round-arrow"
+                  onClick={(event) => {
+                    event.stopPropagation();
+                    navigate(`/doctors/${slug}`);
+                  }}
+                  aria-label={t(
+                    `View profile of ${doctor.name}`,
+                    `${doctor.name} की प्रोफाइल देखें`,
+                  )}
+                >
+                  <ArrowUpRight size={18} />
+                </button>
+              </div>
+            </article>
+          );
+        })}
+      </div>
+    </section>
+  );
 }

@@ -4,7 +4,7 @@ import RouteLink from "../ui/RouteLink";
 
 export default function Navbar({ t, isHindi, language, setLanguage, menuOpen, setMenuOpen, onBook }) {
   return <header className="header"><div className="container header-inner">
-    <RouteLink className="brand" href="/" aria-label="Phulo Jhano Medical College and Hospital home"><span className="brand-mark"><img src="/pjmc-logo.png" alt="" /></span><span>Phulo Jhano<span>PJMC</span></span></RouteLink>
+    <RouteLink className="brand" href="/" aria-label="Phulo Jhano Medical College and Hospital home"><span className="brand-mark"><img src="/images/branding/pjmc-logo.png" alt="" /></span><span>Phulo Jhano<span>PJMCH</span></span></RouteLink>
     <nav className={`nav ${menuOpen ? "nav-open" : ""}`}>
       <RouteLink href="/care" onClick={() => setMenuOpen(false)}>{t("Our care", "हमारी सेवाएं")}</RouteLink>
       <RouteLink href="/doctors" onClick={() => setMenuOpen(false)}>{t("Our doctors", "हमारे डॉक्टर")}</RouteLink>

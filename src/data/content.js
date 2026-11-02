@@ -2,6 +2,7 @@ import { Activity, Baby, Bone, Brain, HeartPulse, ShieldCheck, Stethoscope } fro
 import doctorsMarkdown from "../content/doctors.md?raw";
 import facilitiesMarkdown from "../content/facilities.md?raw";
 import managementMarkdown from "../content/management.md?raw";
+import schemesMarkdown from "../content/schemes.md?raw";
 
 function readMarkdownData(markdown, label) {
   const match = markdown.match(/```json\s*([\s\S]*?)\s*```/i);
@@ -171,3 +172,5 @@ export const hospitalServiceGroups = [
     tone: "green"
   }
 ];
+
+export const governmentSchemes = readMarkdownData(schemesMarkdown, "schemes.md");

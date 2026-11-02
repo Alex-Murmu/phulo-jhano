@@ -30,7 +30,7 @@ export default function App() {
     path === "/doctors" ? <DoctorsPage t={t} isHindi={isHindi} /> :
     path === "/care" ? <CarePage t={t} isHindi={isHindi} /> :
     path === "/facilities" ? <FacilitiesPage t={t} isHindi={isHindi} /> :
-    path === "/about" ? <AboutPage t={t} /> :
+    path === "/about" ? <AboutPage t={t} isHindi={isHindi} /> :
     path === "/appointments" ? <AppointmentsPage t={t} /> :
     <><HeroSection t={t} onBook={goAppointments} /><AboutSection t={t} /><ServicesSection t={t} isHindi={isHindi} /><DoctorsSection t={t} /><FacilitiesSection t={t} isHindi={isHindi} /><PatientStorySection t={t} /><AppointmentSection t={t} onBook={goAppointments} /></>;
 
